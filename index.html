@@ -1,0 +1,226 @@
+<!--https://symu.co/-->
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="flexslider/flexslider.css">
+<link rel="stylesheet" href="fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="flexslider/jquery.flexslider-min.js"></script>
+<title>Symu.co - display your design in a web browser</title>
+<script>
+	$(document).ready(function(){
+		var isMenuOpen = true;
+		
+		$('.btn-nav').mousedown(function(){
+			if(isMenuOpen == true){
+				isMenuOpen = false;
+				$('nav').addClass('cut');		
+				$(this).removeClass('close');
+			}else if(isMenuOpen == false){
+				isMenuOpen = true;
+				$('nav').removeClass('cut');
+				$(this).addClass('close');
+			}
+		});
+		
+		$('.flexslider').flexslider({
+			animation: "slide"
+		});
+	
+		$('.article2 a').mouseenter(function(){$(this).children('.photo').addClass('over')})
+		$('.article2 a').mouseleave(function(){$(this).children('.photo').removeClass('over')})
+		
+		
+	})
+	$(window).scroll(function(){
+		var top=$(window).scrollTop();
+		var height=top+$(window).height();
+		
+		if(top < 1){
+			$("header").removeClass('active');			
+		}else {
+			$("header").addClass('active');
+
+		}
+	})	
+	
+	//Quick이동
+	function moveQuick(id){
+		var scrollPosition = $(id).offset().top;
+		 $("html").animate({'scrollTop': scrollPosition-100}, 1000);
+	}
+</script>
+</head>
+
+<body>
+<header>
+	<div class="hd-wrap">
+        <div class="logo"><a href="javascript:moveQuick('body')"><h1>symu.co</h1></a></div>      
+        <nav class="disable">
+            <ul class="nav-main">
+                <li><a href="javascript:moveQuick('.article1')">article1</a></li>
+                <li><a href="javascript:moveQuick('.article2')">article2</a></li>
+                <li><a href="javascript:moveQuick('.article3')">article3</a></li>
+            </ul>
+        </nav>
+        <div class="btn-nav close">
+            <div class="trigger">
+                <span id="sc-top"></span>
+                <span id="sc-middle"></span>
+                <span id="sc-bottom"></span>
+            </div>
+        </div> 
+        <ul class="user">
+            <li class="btn-login"><a href="#">Log in</a></li>
+            <li class="btn-signup"><a href="#">Sign up</a></li>
+        </ul>
+    </div>
+</header>
+
+
+
+<section>
+	<div class="mainVisual">
+    	<div class="mv-wrap">
+            <h2>Present your design in a professional way.</h2>
+            <p>Upload project, Get feedback from client, Manage your work in one place!</p>
+            <div class="buttons">
+                <div class="btn-reg"><a href="#">sign&nbsp;up&nbsp;for&nbsp;free</a></div>
+                <div class="btn-vid"><a href="#">play&nbsp;video</a></div>
+            </div>
+            <div class="clear"></div>
+           	<div class="flexslider">
+                <ul class="slides">
+                    <li><img src="imgs/slide1.jpg" /></li>
+                    <li><img src="imgs/slide2.jpg" /></li>
+                    <li><img src="imgs/slide3.jpg" /></li>
+                    <li><img src="imgs/slide4.jpg" /></li>
+                </ul>
+        	</div>  
+		</div>  
+
+    </div>   
+	<article class="article1">
+    	<div class="ar-wrap">
+                <div class="txt-exp">
+                    <h2>The easiest way<br>to get feedback</h2>
+                    <h3><span class="fas fa-comments"></span>Add a comment anywhere</h3>
+                    <p>
+                       Symu is an easy to use tool for web designers. 
+                        <br>With the help of our system you can present your projects in a browser. It is all very easy!
+                    </p>
+                </div>
+            <div class="article-bg"></div>
+        </div>
+
+        <div class="clear"></div>
+    </article>
+    
+    <article class="article2">
+        <ul>
+            <li>
+                <a href="#">
+                    <div class="photo"><img src="imgs/ar2-1.jpg"></div>
+                    <div class="text">
+                        <h3>first article</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="photo"><img src="imgs/ar2-2.jpg"></div>
+                    <div class="text">
+                        <h3>second article</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="photo"><img src="imgs/ar2-3.jpg"></div>
+                    <div class="text">
+                        <h3>third article</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="photo"><img src="imgs/ar2-4.jpg"></div>
+                    <div class="text">
+                        <h3>fourth article</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </article>
+    
+    <article class="article3">
+    	<div class="ar-wrap">
+        	<div class="txt-exp">
+            <h2>Workflow and<br>project management</h2>
+   				<h3><span class="fas fa-bars"></span>Project workflow</h3>
+                <p>
+                    Set the status of multiple projects in a single clever panel
+                    <br>Simply drag a project to the appropriate group and its status will change automatically!
+                </p>
+        	</div>
+        	<div class="article-bg"></div>
+        </div>
+        <div class="clear"></div>
+    </article>
+    
+    <article class="plugins">
+    	<h2>plugin&nbsp;and&nbsp;extensions</h2>
+    	<ul>
+            <li>
+                <img src="imgs/sketch-logo.png">
+                <h3>sketch plugin.</h3>
+                <p>upload your projects using our<br>Sketch plugin and speed up your workflow</p>
+                <div class="btn-more"><a href="#">view more</a></div>
+            </li>
+            <li>
+                <img src="imgs/chrome-logo.png">
+                <h3>chrome extension.</h3>
+                <p>take a screenshot and upload it much<br>faster using our Chrome extension</p>
+                <div class="btn-more"><a href="#">view more</a></div>
+            </li>
+            <li>
+                <img src="imgs/photoshop-logo.png">
+                <h3>photoshop plugin</h3>
+                <p>upload your projects using our<br>Photoshop plugin and speed up your workflow</p>
+                <div class="btn-more"><a href="#">view more</a></div>
+            </li>
+	   	</ul>
+    </article>
+</section>
+
+
+
+<footer>
+	<div class="ft-wrap">
+        <div class="ft-logo">
+            <h1>symu.co</h1>
+            <p>Present your design or wireframes<br>in a proffesional way</p>
+        </div> 
+        <div class="ft-sns">
+            <h2>follow us</h2>
+          	<ul>
+                <li class="facebook"><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                <li class="twitter"><a href="#"><span class="fab fa-twitter-square"></span></a></li>
+                <li class="github"><a href="#"><span class="fab fa-github-square"></span></a></li>
+                <li class="linkedin"><a href="#"><span class="fab fa-linkedin"></span></a></li>
+            </ul>           
+        </div>
+        <div class="clear"></div>
+ 	</div>
+</footer>
+
+</body>
+</html>
